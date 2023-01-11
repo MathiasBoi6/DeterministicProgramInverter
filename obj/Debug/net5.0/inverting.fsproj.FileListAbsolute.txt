@@ -1,0 +1,3 @@
+C:\Users\hellf\Desktop\Bachelor\InverterFsharp\obj\Debug\net5.0\inverting.fsproj.AssemblyReference.cache
+C:\Users\hellf\Desktop\Bachelor\InverterFsharp\obj\Debug\net5.0\inverting.AssemblyInfoInputs.cache
+C:\Users\hellf\Desktop\Bachelor\InverterFsharp\obj\Debug\net5.0\inverting.AssemblyInfo.fs

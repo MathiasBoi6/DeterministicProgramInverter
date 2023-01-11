@@ -1,0 +1,6 @@
+"reverse":
+  [Make ("nil", 0); Permute [2; 1]; Nonterminal "rev"]
+"rev":
+  [Case "nil"]
+  [Case "cons"; Permute [1; 3; 2]; Make ("cons", 2); Permute [2; 1];
+ Nonterminal "rev"]

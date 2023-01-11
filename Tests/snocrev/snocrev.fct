@@ -1,0 +1,13 @@
+(define (snocrev x)
+  (case x
+   ((nil) (return (make nil)))
+   ((cons x1 xs)
+    (let ((ys) (snocrev xs))
+      (let ((zs) (snoc ys x1))
+        (return zs))))))
+
+(define (snoc x y)
+  (case x
+    ((nil) (return (make cons y (make nil))))
+    ((cons x1 xs) (let ((z) (snoc xs y))
+                    (return (make cons x1 z))))))

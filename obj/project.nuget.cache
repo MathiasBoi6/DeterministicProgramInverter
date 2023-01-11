@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "w4bUn+z9ZMhYZyoBepVMIHC80PmyKwFAfdjW31vSILGS7lsf8Zpgq5vN3w3H3Z7modDt7Dunmpw5vrESxGmoIA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hellf\\Desktop\\Bachelor\\InverterFsharp\\inverting.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hellf\\.nuget\\packages\\fsharp.core\\6.0.7\\fsharp.core.6.0.7.nupkg.sha512",
+    "C:\\Users\\hellf\\.nuget\\packages\\fslexyacc\\10.2.0\\fslexyacc.10.2.0.nupkg.sha512",
+    "C:\\Users\\hellf\\.nuget\\packages\\fslexyacc.runtime\\10.2.0\\fslexyacc.runtime.10.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,7 @@
+"snocrev":
+  [Case "nil"; Make ("nil", 0)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "snocrev"; Nonterminal "snoc"]
+"snoc":
+  [Case "nil"; Make ("nil", 0); Permute [2; 1]; Make ("cons", 2)]
+  [Case "cons"; Permute [2; 3; 1]; Nonterminal "snoc"; Permute [2; 1];
+ Make ("cons", 2)]

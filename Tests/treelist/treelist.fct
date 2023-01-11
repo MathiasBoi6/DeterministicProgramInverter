@@ -1,0 +1,31 @@
+(define (treelist t)
+  (case t
+    ((leaf) (return (make cons (make 0) (make nil))))
+    ((bin t1 t2) (let ((r1) (treelist t1))
+                   (let ((r2) (treelist t2))
+                     (let ((n rs) (appendn r1 r2))
+                       (return (make cons n rs))))))))
+
+(define (appendn x y)
+  (case x
+    ((nil) (return (make 1) y))
+    ((cons x1 xs) (let ((n z) (appendn xs y))
+                    (let ((z2) (id (make cons x1 z)))
+                      (let ((m) (inc n))
+                        (return m z2)))))))
+
+(define (inc x)
+  (case x
+    ((1) (return (make cons (make 0) (make 1))))
+    ((cons x1 xs)
+     (case x1
+       ((0) (return (make cons (make 1) xs)))
+       ((1) (let ((m) (inc xs))
+              (return (make cons (make 0) m))))))))
+
+(define (id x)
+  (return x))
+
+(define (MakeLeafAndBin t)
+  (return (treelist t) (make bin (make leaf) (make leaf)))
+    )

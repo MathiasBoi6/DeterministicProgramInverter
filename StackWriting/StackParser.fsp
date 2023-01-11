@@ -1,0 +1,50 @@
+%{
+
+open AbSyn
+
+%}
+
+// The start token becomes a parser function in the compiled code:
+%start parseStack
+
+// Keyword tokens
+%token <Column> LPAR RPAR RBRA LBRA COMMA SEMI
+%token <int * Column> NUM
+%token <string * Column> VAR
+
+// Misc tokens
+%token EOF
+
+
+// This is the type of the data produced by a successful reduction of the 'start' symbol:
+%type < Value list> parseStack
+%type < Value list> parseInner
+%type < Value > parseValue
+%type < Value list > commaSepValue
+
+
+%%
+
+parseStack:
+    | LBRA parseInner RBRA EOF       {$2}
+    | LBRA RBRA EOF       { [] }
+;
+
+parseInner:
+    | parseValue SEMI parseInner      { $1::$3 }
+    | parseValue                      { [$1] }
+;
+
+parseValue:
+    | VAR LPAR commaSepValue RPAR   { Value.CONS ((fst $1), $3) }
+    | NUM                           { Value.NUM (fst $1) }
+    | VAR                           { Value.CONS ((fst $1), []) }
+;
+
+commaSepValue:
+    | parseValue COMMA commaSepValue    { $1::$3}
+    | parseValue                        { [$1] }
+;
+
+
+%%

@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FsLexYacc" Version="10.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Lexing\AbSyn.fs" />
+
+    <!-- Fct parsing -->
+    
+    <FsYacc Include="Lexing\Parser.fsp">
+      <OtherFlags>-o "bin\Parser.fs" --module Parser</OtherFlags>
+    </FsYacc> 
+    <FsLex Include="Lexing\Lexer.fsl">
+      <OtherFlags>-o "bin\Lexer.fs" --unicode</OtherFlags>
+    </FsLex>
+    <Compile Include="bin\Parser.fs" />
+    <Compile Include="bin\Lexer.fs" />
+    <Compile Include="Lexing\CodeGenerator.fs" />
+
+    <!-- Pretty Stack parsing -->
+
+    <FsYacc Include="StackWriting\StackParser.fsp">
+      <OtherFlags>-o "bin\StackParser.fs" --module StackParser</OtherFlags>
+    </FsYacc>
+    <FsLex Include="StackWriting\StackLexer.fsl">
+      <OtherFlags>-o "bin\StackLexer.fs" --unicode</OtherFlags>
+    </FsLex>
+    <Compile Include="bin\StackParser.fs" />
+    <Compile Include="bin\StackLexer.fs" />
+    <Compile Include="StackWriting\StackLex.fs" />
+
+    <!-- Code parsing -->
+
+    <Compile Include="Parsing/LocalInverter.fs" />
+    <Compile Include="Parsing/RobNFA.fs" />
+    <Compile Include="Parsing/RobDFA.fs" />
+    <Compile Include="Parsing/RobParse.fs" />
+    <Compile Include="Parsing/GrammarParser.fs" />
+    
+    
+    
+    <Compile Include="Interpreting\Interpreter.fs" />
+    
+    
+    <!--
+    <Compile Include="SymTab.fs" />
+    <Compile Include="Interpreter.fs" />
+    <Compile Include="TypeChecker.fs" />
+    <Compile Include="CallGraph.fs" />
+    <Compile Include="Inlining.fs" />
+    <Compile Include="DeadFunctionRemoval.fs" />
+    <Compile Include="DeadBindingRemoval.fs" />
+    <Compile Include="CopyConstPropFold.fs" />
+    <Compile Include="Mips.fs" />
+    <Compile Include="RegAlloc.fs" />
+    <Compile Include="CodeGen.fs" />
+
+    <Compile Include="Lexing\tester.fs" />
+    
+    -->
+    <Compile Include="TestFunctions.fs" />
+    <Compile Include="inverter.fs" />
+  </ItemGroup>
+
+
+</Project>

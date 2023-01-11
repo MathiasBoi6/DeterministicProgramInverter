@@ -1,0 +1,15 @@
+(define (MakeLeafAndBin t)
+  (return (treepaths t) (make bin (make leaf) (make leaf)))
+    )
+
+(define (treepaths t)
+  (let ((ps) (paths t (make nil) (make nil)))
+    (return ps)))
+
+(define (paths t p ps)
+  (case t
+    ((leaf) (return (make cons p ps)))
+    ((bin l r) (case (du (make tuple p))
+                 ((tuple c1 c2) (let ((ps2) (paths r (make cons (make 1) c1) ps))
+                                  (let ((ps3) (paths l (make cons (make 0) c2) ps2))
+                                    (return ps3))))))))

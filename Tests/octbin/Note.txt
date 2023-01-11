@@ -1,0 +1,2 @@
+This does not just perform octal to binary.
+264 becomes 462 in binary reversed.

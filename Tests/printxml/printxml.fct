@@ -1,0 +1,27 @@
+(define (MakeLeafAndBin t)
+  (return (print-xml t) (make branch (make leaf) (make leaf) (make leaf)))
+    )
+
+(define (print-xml x)
+  (let ((t) (prn-xml-nil x))
+    (return t)))
+
+(define (prn-xml-nil x)
+  (case x
+    ((leaf) (return (make nil)))
+    ((branch n x1 x2)
+     (let ((t2) (prn-xml-nil x2))
+       (case (du (make tuple n))
+         ((tuple n1 n2)
+          (let ((t3) (prn-xml n1 t2 x1))
+            (return (make cons (make open n2) t3)))))))))
+
+(define (prn-xml cn t x)
+  (case x
+    ((leaf) (return (make cons (make close cn) t)))
+    ((branch n x1 x2)
+     (let ((t2) (prn-xml cn t x2))
+       (case (du (make tuple n))
+         ((tuple n1 n2)
+          (let ((t3) (prn-xml n1 t2 x1))
+            (return (make cons (make open n2) t3)))))))))

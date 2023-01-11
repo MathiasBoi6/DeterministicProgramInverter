@@ -1,0 +1,1 @@
+[cons (tuple (1, 4), cons (tuple (2, 5), cons (tuple (3, 6), nil)))]

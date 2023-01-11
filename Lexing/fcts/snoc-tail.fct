@@ -1,0 +1,19 @@
+(define (snoc xs y)
+   (let ((z) (snoc_tail xs y (make id)))
+       (return z)))
+
+(define (snoc_tail xs0 y k)
+    (case xs0
+      ((nil) 
+        (let ((z) (eval k (make cons y (make nil))))
+          (return z)))
+      ((cons x xs) 
+        (let ((z) (snoc_tail xs y (make cont k x)))
+          (return z)))))
+
+(define (eval f z)
+  (case f
+    ((id) (return z))
+    ((cont k x)
+      (let ((y) (eval k (make cons x z)))
+        (return y)))))

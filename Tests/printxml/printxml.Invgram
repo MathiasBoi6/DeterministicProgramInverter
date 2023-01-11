@@ -1,0 +1,18 @@
+"F [0]":
+  [Case "nil"; Make ("leaf", 0); Permute [2; 1]; Case "branch"; Case "leaf";
+ Case "leaf"; Case "leaf"]
+  [Case "cons"; Case "open"; Permute [2; 1]; Case "cons"; Nonterminal "F [6]";
+ Permute [1; 4; 2; 3]; Make ("tuple", 2); CaseEquality; Case "tuple";
+ Permute [2; 1]; Nonterminal "F [27]"; Permute [2; 1]; Case "branch";
+ Case "leaf"; Case "leaf"; Case "leaf"]
+"F [6]":
+  [Case "open"; Permute [2; 1]; Case "cons"; Nonterminal "F [6]";
+ Permute [1; 4; 2; 3]; Make ("tuple", 2); CaseEquality; Case "tuple";
+ Permute [2; 1]; Case "cons"; Nonterminal "F [6]"; Permute [4; 5; 3; 1; 2];
+ Make ("branch", 3); Permute [2; 3; 1]]
+  [Case "close"; Make ("leaf", 0); Permute [2; 3; 1]]
+"F [27]":
+  [Case "nil"; Make ("leaf", 0); Permute [2; 3; 1]; Make ("branch", 3)]
+  [Case "cons"; Case "open"; Permute [2; 1]; Case "cons"; Nonterminal "F [6]";
+ Permute [1; 4; 2; 3]; Make ("tuple", 2); CaseEquality; Case "tuple";
+ Permute [2; 1]; Nonterminal "F [27]"; Permute [2; 3; 1]; Make ("branch", 3)]

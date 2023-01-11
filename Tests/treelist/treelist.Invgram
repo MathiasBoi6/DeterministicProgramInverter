@@ -1,0 +1,15 @@
+"F [0]":
+  [Case "cons"; Nonterminal "F [1]"]
+"F [1]":
+  [CaseNum 1; Make ("nil", 0); Permute [2; 1]; Case "cons"; Nonterminal "F [1]";
+ Permute [2; 1]; Case "cons"; Nonterminal "F [1]"; Make ("bin", 2)]
+  [Case "cons"; Nonterminal "F [4]"; Permute [2; 1]; Permute [2; 1]; Case "cons";
+ Nonterminal "F [1]"; Permute [2; 1]; Case "cons"; Nonterminal "F [1]";
+ Make ("bin", 2)]
+  [CaseNum 0; Case "nil"; Make ("leaf", 0)]
+"F [4]":
+  [CaseNum 0; Nonterminal "F [5]"]
+  [CaseNum 1; MakeNum 0; Make ("cons", 2)]
+"F [5]":
+  [CaseNum 1; MakeNum 1]
+  [Case "cons"; Nonterminal "F [4]"; MakeNum 1; Make ("cons", 2)]

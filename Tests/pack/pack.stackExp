@@ -1,0 +1,1 @@
+[cons (pair (A, 1), cons (pair (B, 1), nil))]

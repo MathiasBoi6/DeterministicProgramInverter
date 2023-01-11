@@ -1,0 +1,15 @@
+"print-sexp":
+  [Make ("nil", 0); Nonterminal "pcar"]
+"pcar":
+  [Permute [2; 1]; Case "symbol"; Make ("symbol", 1); Make ("cons", 2)]
+  [Permute [2; 1]; Case "nil"; Make ("right", 0); Make ("cons", 2);
+ Make ("left", 0); Make ("cons", 2)]
+  [Permute [2; 1]; Case "cons"; Permute [3; 2; 1]; Nonterminal "pcdr";
+ Nonterminal "pcar"; Make ("left", 0); Make ("cons", 2)]
+"pcdr":
+  [Permute [2; 1]; Case "symbol"; Permute [2; 1]; Make ("right", 0);
+ Make ("cons", 2); Permute [2; 1]; Make ("symbol", 1); Make ("cons", 2);
+ Make ("dot", 0); Make ("cons", 2)]
+  [Permute [2; 1]; Case "nil"; Make ("right", 0); Make ("cons", 2)]
+  [Permute [2; 1]; Case "cons"; Permute [3; 2; 1]; Nonterminal "pcdr";
+ Nonterminal "pcar"]

@@ -1,0 +1,11 @@
+"MakeLeafAndBin":
+  [Make ("leaf", 0); Make ("leaf", 0); Make ("bin", 2); Permute [2; 1];
+ Nonterminal "treepaths"]
+"treepaths":
+  [Make ("nil", 0); Make ("nil", 0); Permute [3; 1; 2]; Nonterminal "paths"]
+"paths":
+  [Case "leaf"; Make ("cons", 2)]
+  [Case "bin"; Permute [3; 1; 2]; Make ("tuple", 1); Duplicate; Case "tuple";
+ Permute [1; 5; 2; 3; 4]; MakeNum 1; Make ("cons", 2); Permute [5; 1; 2; 3; 4];
+ Nonterminal "paths"; Permute [2; 1]; MakeNum 0; Make ("cons", 2);
+ Permute [3; 1; 2]; Nonterminal "paths"]

@@ -1,0 +1,5 @@
+Sarity has been added to the fct file, as the arity of s wasn't defined.
+This makes it such that the output has s(1) appended at the end.
+
+(define (Sarity u)
+  (return (unbin u) (make s (make 1))))

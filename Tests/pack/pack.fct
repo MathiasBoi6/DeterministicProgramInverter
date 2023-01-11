@@ -1,0 +1,15 @@
+(define (pack s)
+  (case s
+    ((nil) (return (make nil)))
+    ((cons s1 ss) (let ((p) (sub s1 (make 1) ss))
+                    (return p)))))
+
+(define (sub t n s)
+  (case s
+    ((nil) (return (make cons (make pair t n) (make nil))))
+    ((cons s1 ss)
+     (case (eq (make tuple t s1))
+       ((tuple u) (let ((p) (sub u (make s n) ss))
+                    (return p)))
+       ((tuple t2 s2) (let ((p) (sub s2 (make 1) ss))
+                        (return (make cons (make pair t2 n) p))))))))

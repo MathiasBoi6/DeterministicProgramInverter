@@ -1,0 +1,6 @@
+    | LPAR CASE LPAR DUP Productions RPAR Cases RPAR    { 
+                                                            List.fold 
+                                                                (fun acc prod ->  
+                                                                    (List.map (fun prod2 -> prod2@[FDuplicate; FRemoveTop]@prod) $5)@acc
+                                                                ) [] $7
+                                                        }

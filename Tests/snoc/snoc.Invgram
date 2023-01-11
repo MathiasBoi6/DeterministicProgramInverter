@@ -1,0 +1,6 @@
+"F [0]":
+  [Case "cons"; Permute [2; 1]; Nonterminal "F [2]"]
+"F [2]":
+  [Case "nil"; Make ("nil", 0)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "F [2]"; Permute [3; 1; 2];
+ Make ("cons", 2)]

@@ -1,0 +1,10 @@
+(define (reverse xs)
+  (let ((ys) (rev xs (make nil)))
+    (return ys)))
+
+(define (rev xs ys)
+  (case xs
+    ((nil) (return ys))
+    ((cons x xs2)
+     (let ((zs) (rev xs2 (make cons x ys)))
+       (return zs)))))

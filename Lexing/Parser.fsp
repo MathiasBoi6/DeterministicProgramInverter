@@ -1,0 +1,129 @@
+%{
+
+open AbSyn
+
+%}
+
+// The start token becomes a parser function in the compiled code:
+%start parseProg
+
+// Keyword tokens
+%token <Column> LPAR RPAR
+%token <Column> DEFINE LET CASE NIL RETURN MAKE DUP EQ
+
+%token <int * Column> NUM
+%token <string * Column> VAR
+
+// Misc tokens
+%token EOF
+
+
+// This is the type of the data produced by a successful reduction of the 'start' symbol:
+%type < fctSyntaxGrammar > parseProg
+%type < fctSyntaxGrammar > Definitions
+%type < fctProduction list > Productions
+%type < fctProduction list > MakeNary
+%type < fctProduction list > Cases
+%type < fctProduction list > ParameterList
+%type < (fctProduction list) * int > ProductionList
+%type < fctNonterminal > Nonterminal
+%type < string list > NamedVar
+%type < fctSyntaxTerminal > Case
+
+
+%%
+
+
+//Prog: Nonterminals EOF { $1 }
+//;
+
+
+// These are the rules of the grammar along with the F# code of the 
+// actions executed as rules are reduced.  
+parseProg: Definitions EOF { $1 }
+;
+
+// Not sure whether ResetValues runs before Nonterminal and 
+// Productions are evaluated or after, but it should give same result
+Definitions:
+    | LPAR Nonterminal Productions RPAR Definitions   { ($2, $3) :: $5 }
+    | LPAR Nonterminal Productions RPAR     { [($2, $3)] }
+;
+
+Nonterminal:
+    | DEFINE LPAR VAR NamedVar RPAR     { (fst $3, $4) }
+;
+
+NamedVar:
+    | VAR NamedVar      { [fst $1] @ $2 }
+    | VAR               { [fst $1] }
+;
+
+
+Productions:
+    | LPAR CASE VAR Cases RPAR                      {
+                                                        List.map (fun prod ->  (FCase (fst $3))::prod ) $4
+                                                    }
+    | LPAR CASE Productions Cases RPAR              {
+                                                        List.fold 
+                                                            (fun acc prod ->  
+                                                                (List.map (fun prod2 -> prod2@prod) $3)@acc
+                                                            ) [] $4
+                                                    }
+    | LPAR RETURN ProductionList RPAR               { fst $3 }
+    | LPAR DUP Productions RPAR                     { List.map (fun prod ->  prod@[FDuplicate] ) $3 }
+    | LPAR EQ Productions RPAR                      { List.map (fun prod ->  prod@[FEquality] ) $3 }
+    | LPAR MAKE NUM RPAR                            { [[FMakeNum (fst $3)]] }
+    | MakeNary                                      { $1 }
+    | VAR                                           { [[FUseVar (fst $1)]]}
+    | LPAR LET LPAR LPAR NamedVar RPAR Productions RPAR Productions RPAR     {
+                                                                            List.fold 
+                                                                                (fun acc prod ->  
+                                                                                    (List.map (fun prod2 -> prod@[FAddVar ($5)]@prod2) $9)@acc
+                                                                                ) [] $7
+                                                                        }
+    | LPAR VAR ParameterList RPAR                   { [[FNonterminal (fst $2, $3)]] } //Nonterminal Case
+;
+
+
+ParameterList:
+    | Productions ParameterList     { $1 @ $2 }
+    | Productions                   { $1 }
+;
+
+MakeNary:
+    | LPAR MAKE VAR ProductionList RPAR     { 
+                                                List.map (fun prod ->  prod@[FMake ((fst $3), (snd $4))] ) (fst $4)
+                                            }
+    | LPAR MAKE VAR RPAR                    { [[FMake ((fst $3), 0)]] }
+;
+
+ProductionList:
+    | Productions ProductionList            { 
+                                                (List.fold 
+                                                    (fun acc prod ->  
+                                                        (List.map (fun prod2 -> prod@prod2) $1)@acc
+                                                    ) [] (fst $2)
+                                                , (snd $2) + 1)
+                                            }
+    | Productions                           { ($1, 1) }
+;
+
+
+Cases:
+    | LPAR LPAR Case RPAR Productions RPAR Cases    { 
+                                                        (List.map (fun prod ->  $3::prod ) $5) @ $7 
+                                                    }
+    | LPAR LPAR Case RPAR Productions RPAR          { 
+                                                        List.map (fun prod ->  $3::prod ) $5 
+                                                    }
+;
+
+Case:
+    | NUM           { FCaseNum (fst $1) }
+    | VAR NamedVar  { FCaseVar ((fst $1), $2) }
+    | VAR           { FCaseVar ((fst $1), []) }
+;
+
+
+%%

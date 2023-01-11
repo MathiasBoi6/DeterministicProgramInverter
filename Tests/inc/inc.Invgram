@@ -1,0 +1,8 @@
+"F [0]":
+  [Case "cons"; Nonterminal "F [1]"]
+"F [1]":
+  [CaseNum 0; Nonterminal "F [2]"]
+  [CaseNum 1; MakeNum 0; Make ("cons", 2)]
+"F [2]":
+  [CaseNum 1; MakeNum 1]
+  [Case "cons"; Nonterminal "F [1]"; MakeNum 1; Make ("cons", 2)]

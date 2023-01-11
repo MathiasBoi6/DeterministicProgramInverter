@@ -1,0 +1,4 @@
+"inc":
+  [CaseNum 1; MakeNum 1; MakeNum 0; Make ("cons", 2)]
+  [Case "cons"; CaseNum 0; MakeNum 1; Make ("cons", 2)]
+  [Case "cons"; CaseNum 1; Nonterminal "inc"; MakeNum 0; Make ("cons", 2)]

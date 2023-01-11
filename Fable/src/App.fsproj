@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  
+
+  <ItemGroup>
+    <Compile Include="Lexing\AbSyn.fs" />
+    <Compile Include="Attempts\grammar.fs" />
+
+    <Compile Include="Parsing\LocalInverter.fs" />
+    <Compile Include="Parsing\RobNFA.fs" />
+    <Compile Include="Parsing\RobDFA.fs" />
+    <Compile Include="Parsing\RobParse.fs" />
+
+    <Compile Include="WebLexParse\GrammarLex.fs" />
+    <Compile Include="WebLexParse\StringPrinter.fs" />
+    <Compile Include="WebLexParse\StackLex.fs" />
+
+    <Compile Include="Interpreting\interpreter.fs" />
+
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />
+    <PackageReference Include="Fable.Core" Version="3.2.3" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+"treelist":
+  [Case "leaf"; Make ("nil", 0); MakeNum 0; Make ("cons", 2)]
+  [Case "bin"; Nonterminal "treelist"; Permute [2; 1]; Nonterminal "treelist";
+ Permute [2; 1]; Nonterminal "appendn"; Make ("cons", 2)]
+"appendn":
+  [Case "nil"; MakeNum 1]
+  [Case "cons"; Permute [2; 3; 1]; Nonterminal "appendn"; Permute [3; 2; 1];
+ Make ("cons", 2); Nonterminal "id"; Permute [2; 1]; Nonterminal "inc"]
+"inc":
+  [CaseNum 1; MakeNum 1; MakeNum 0; Make ("cons", 2)]
+  [Case "cons"; CaseNum 0; MakeNum 1; Make ("cons", 2)]
+  [Case "cons"; CaseNum 1; Nonterminal "inc"; MakeNum 0; Make ("cons", 2)]
+"id":
+  []
+"MakeLeafAndBin":
+  [Make ("leaf", 0); Make ("leaf", 0); Make ("bin", 2); Permute [2; 1];
+ Nonterminal "treelist"]

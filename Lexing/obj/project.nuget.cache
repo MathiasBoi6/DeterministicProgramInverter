@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "k4XIyq4IP45YWzi1KePwVuLnwWkhCjCRbcKR/zawqedGDfoIq2g7QCbbuuXs5AIGgwnj563o+a1q0INC+lsLOA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Terminalen\\Desktop\\Inverter\\Lexing\\lexing.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Terminalen\\.nuget\\packages\\fsharp.core\\6.0.6\\fsharp.core.6.0.6.nupkg.sha512",
+    "C:\\Users\\Terminalen\\.nuget\\packages\\fslexyacc\\10.2.0\\fslexyacc.10.2.0.nupkg.sha512",
+    "C:\\Users\\Terminalen\\.nuget\\packages\\fslexyacc.runtime\\10.2.0\\fslexyacc.runtime.10.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

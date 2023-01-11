@@ -1,0 +1,2 @@
+Treepath does not show arity for leaf and bin, so i have appended a function
+"MakeLeafAndBin" which adds 'bin(leaf, leaf)' to the end of the output

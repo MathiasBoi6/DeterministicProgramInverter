@@ -1,0 +1,16 @@
+"MakeLeafAndBin":
+  [Make ("leaf", 0); Make ("leaf", 0); Make ("leaf", 0); Make ("branch", 3);
+ Permute [2; 1]; Nonterminal "print-xml"]
+"print-xml":
+  [Nonterminal "prn-xml-nil"]
+"prn-xml-nil":
+  [Case "leaf"; Make ("nil", 0)]
+  [Case "branch"; Permute [3; 1; 2]; Nonterminal "prn-xml-nil"; Permute [2; 1];
+ Make ("tuple", 1); Duplicate; Case "tuple"; Permute [1; 3; 4; 2];
+ Nonterminal "prn-xml"; Permute [2; 1]; Make ("open", 1); Make ("cons", 2)]
+"prn-xml":
+  [Permute [3; 1; 2]; Case "leaf"; Make ("close", 1); Make ("cons", 2)]
+  [Permute [3; 1; 2]; Case "branch"; Permute [4; 5; 3; 1; 2];
+ Nonterminal "prn-xml"; Permute [2; 1]; Make ("tuple", 1); Duplicate;
+ Case "tuple"; Permute [1; 3; 4; 2]; Nonterminal "prn-xml"; Permute [2; 1];
+ Make ("open", 1); Make ("cons", 2)]

@@ -1,0 +1,10 @@
+(define (inc x)
+	( case x
+		((1)
+			make
+		)
+		((cons x1 x2)
+			make
+		)
+	)
+)

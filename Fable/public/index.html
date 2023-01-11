@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+
+<head>
+  <title>Inverter</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="fable.ico" />
+  <link rel="stylesheet" type="text/css" href="scripts/editStyle.css">
+</head>
+
+<ul class = "front">
+  <li><b class="alwaysActive">Program inverter</b></li>
+  <li><b> </b></li>
+  <li onclick="ActivateNB(this)"><a class="active">Editor</a></li>
+  <li onclick="ActivateNB(this)"><a>Show Syntax</a></li>
+    <li><div class="dropdown">
+        <a class="dropbtn"> Examples 
+            <i class="fa fa-caret-down"></i>
+        </a>
+        <div class="dropdown-content" onclick="compile()">
+          <d class="inc">Binary increase</d>
+          <d class="snoc">Snoc</d>
+          <d class="rps">Rock-paper-scissors</d>
+        </div>
+    </div></li>
+  <li onclick="ActivateNB(this)" style="float:right"><c class="active">Inverse Grammar</c></li>
+  <li onclick="ActivateNB(this)" style="float:right"><c>Uncompressed Grammar</c></li>
+  <li onclick="ActivateNB(this)" style="float:right"><c>Interpret</c></li>
+  <li onclick="ActivateNB(this)" style="float:right"><c>Notes</c></li>
+</ul>
+
+
+<body>
+
+    <!--<p>Fable is running</p>
+    <p>You can click on this button:</p>
+    <button class="my-button">Click me</button>
+
+    <p class="grammar"></p>
+    <p class="g2">Blank</p>
+    
+    <button class="invert">Invert!</button>
+    -->
+
+    <div class = "split left">
+        <textarea id="grammarText" placeholder="Type grammar program here" spellcheck="false"></textarea>
+        <p id="syntaxGrammar" style="display: none;"></p>
+    </div>
+
+    <div class = "split right">
+        <p id="uncompressedGrammar" style="display: none;"></p>
+        <p id="invertedGrammar"></p>
+        <div class="marginFromCenter">
+            <textarea id="interpret1" style="display: none;" placeholder="Type input stack here, Inc example = [cons (1, cons (1, cons (0, cons (1, nil))))]"> [cons (1, cons (1, cons (0, cons (1, nil)))); LOL] </textarea>
+            <br>
+            <button id="interpret3" type="button" style="display: none;">Interpret!</button>
+            <br>
+            <p id="interpret4" style="display: none;">Output:</p>
+            <p id="interpret2" style="display: none;">here</p>
+        </div>
+        <p style="display: none;" id="notes">
+            The code to parse and lex which is otherwise used in the project
+            does not work with Fable. Therefore the lexing on this webhost is suboptimal.
+
+            Nonterminals of grammar need to surronded by double quotes, like this "inc".
+            The terminal (nonterminal string), however, should not have the double quotes.
+            The brackets [ and ] hold significant meaning for parsing, so nonterminals cannot have them.
+            Do not use semicolon ; in grammar, just exclude it, signs such as '(' 
+            has no meaning in the grammar, but it does hold meaning for lexing the stack.
+            The stack lexer only allows for the numbers 0 to 9
+
+            Errors are shown in the web console.
+        <p>
+    </div>
+
+    <!--
+    <div class = "split leftClear">
+        <textarea class = "interpret" style="background-color: coral;" placeholder="Write input stack for grammar program"></textarea>
+    </div>
+
+    <div class = "split rightClear">
+        <textarea class = "interpret" style="background-color: mediumslateblue;" placeholder="Write input stack for inverted grammar program"></textarea>
+    </div>
+    -->
+
+    <img class = "AbsCenter" src="InvertButton.png" alt="Invert!" onclick="">
+
+
+<script src="bundle.js"></script>
+<script type="text/javascript" src="scripts/editor.js"></script>
+<script type="text/javascript" src="scripts/interface.js"></script>
+</body>
+</html>

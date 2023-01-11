@@ -1,0 +1,5 @@
+"double":
+  [Case "nil"; Make ("nil", 0)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "double"; Permute [2; 1];
+ Make ("tuple", 1); Duplicate; Case "tuple"; Permute [2; 3; 1]; Make ("cons", 2);
+ Permute [2; 1]; Make ("cons", 2)]

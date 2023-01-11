@@ -1,0 +1,33 @@
+(define (reverse xs)
+  (let ((ys) (rev xs (make nil)))
+    (return ys)))
+
+(define (rev xs ys)
+  (case xs
+    ((nil) (return ys))
+    ((cons x xs2)
+     (let ((zs) (rev xs2 (make cons x ys)))
+       (return zs)))))
+
+
+"reverse",
+	[
+		(make nil) (swap 21) rev
+	]
+"rev",
+	[
+		(Case nil)
+ 		(Case cons) (swap 132) (cons) (swap 21) rev
+	]
+
+let reverse : GrammarProgram = 
+    [("reverse", 
+        [
+            [Nonterminal "rev"; MakeNum 21; CaseNum 0]
+        ]);
+    ("rev", 
+        [
+            [MakeNum 0];  
+            [Nonterminal "rev"; MakeNum 21; CaseCons; MakeNum 132; MakeCons]
+        ])
+    ]

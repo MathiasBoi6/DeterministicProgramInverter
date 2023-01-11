@@ -1,0 +1,8 @@
+(define (double xs)
+  (case xs
+    ((nil) (return (make nil)))
+    ((cons x xs2)
+      (let ((ys) (double xs2))
+        (case (du (make tuple x))
+          ((tuple x1 x2)
+           (return (make cons x1 (make cons x2 ys)))))))))

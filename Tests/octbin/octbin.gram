@@ -1,0 +1,32 @@
+"octbin":
+  [CaseNum 1; MakeNum 1]
+  [CaseNum 2; MakeNum 1; MakeNum 0; Make ("cons", 2)]
+  [CaseNum 3; MakeNum 1; MakeNum 1; Make ("cons", 2)]
+  [CaseNum 4; MakeNum 1; MakeNum 0; Make ("cons", 2); MakeNum 0; Make ("cons", 2)]
+  [CaseNum 5; MakeNum 1; MakeNum 0; Make ("cons", 2); MakeNum 1; Make ("cons", 2)]
+  [CaseNum 6; MakeNum 1; MakeNum 1; Make ("cons", 2); MakeNum 0; Make ("cons", 2)]
+  [CaseNum 7; MakeNum 1; MakeNum 1; Make ("cons", 2); MakeNum 1; Make ("cons", 2)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "octbin"; Permute [2; 1]; CaseNum 0;
+ MakeNum 0; Make ("cons", 2); MakeNum 0; Make ("cons", 2); MakeNum 0;
+ Make ("cons", 2)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "octbin"; Permute [2; 1]; CaseNum 1;
+ MakeNum 0; Make ("cons", 2); MakeNum 0; Make ("cons", 2); MakeNum 1;
+ Make ("cons", 2)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "octbin"; Permute [2; 1]; CaseNum 2;
+ MakeNum 0; Make ("cons", 2); MakeNum 1; Make ("cons", 2); MakeNum 0;
+ Make ("cons", 2)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "octbin"; Permute [2; 1]; CaseNum 3;
+ MakeNum 0; Make ("cons", 2); MakeNum 1; Make ("cons", 2); MakeNum 1;
+ Make ("cons", 2)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "octbin"; Permute [2; 1]; CaseNum 4;
+ MakeNum 1; Make ("cons", 2); MakeNum 0; Make ("cons", 2); MakeNum 0;
+ Make ("cons", 2)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "octbin"; Permute [2; 1]; CaseNum 5;
+ MakeNum 1; Make ("cons", 2); MakeNum 0; Make ("cons", 2); MakeNum 1;
+ Make ("cons", 2)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "octbin"; Permute [2; 1]; CaseNum 6;
+ MakeNum 1; Make ("cons", 2); MakeNum 1; Make ("cons", 2); MakeNum 0;
+ Make ("cons", 2)]
+  [Case "cons"; Permute [2; 1]; Nonterminal "octbin"; Permute [2; 1]; CaseNum 7;
+ MakeNum 1; Make ("cons", 2); MakeNum 1; Make ("cons", 2); MakeNum 1;
+ Make ("cons", 2)]

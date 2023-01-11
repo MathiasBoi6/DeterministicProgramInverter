@@ -1,0 +1,11 @@
+"Sarity":
+  [MakeNum 1; Make ("s", 1); Permute [2; 1]; Nonterminal "unbin"]
+"unbin":
+  [MakeNum 1; Permute [2; 1]; Nonterminal "ub"]
+"ub":
+  [CaseNum 1]
+  [Case "s"; Permute [2; 1]; Nonterminal "inc"; Permute [2; 1]; Nonterminal "ub"]
+"inc":
+  [CaseNum 1; MakeNum 1; MakeNum 0; Make ("cons", 2)]
+  [Case "cons"; CaseNum 0; MakeNum 1; Make ("cons", 2)]
+  [Case "cons"; CaseNum 1; Nonterminal "inc"; MakeNum 0; Make ("cons", 2)]

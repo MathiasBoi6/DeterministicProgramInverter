@@ -1,0 +1,19 @@
+"F [0]":
+  [Case "nil"; Make ("nil", 0)]
+  [Case "cons"; Case "pair"; Permute [3; 1; 2]; Nonterminal "F [5]";
+ Permute [2; 3; 1]; Nonterminal "F [28; 27; 0]"]
+"F [5]":
+  [Case "cons"; Case "pair"; Permute [3; 1; 2]; Nonterminal "F [5]";
+ Nonterminal "F [6; 5]"]
+  [Case "nil"; Make ("nil", 0); Permute [2; 3; 1]]
+"F [28; 27; 0]":
+  [Case "s"; Permute [3; 2; 1]; Duplicate; Case "tuple"; Permute [2; 3; 1];
+ Make ("cons", 2); Permute [2; 3; 1]; Permute [2; 3; 1];
+ Nonterminal "F [28; 27; 0]"]
+  [CaseNum 1; Permute [2; 1]; Make ("cons", 2)]
+"F [6; 5]":
+  [Permute [2; 3; 4; 1]; CaseNum 1; Permute [2; 3; 1]; Make ("tuple", 3);
+ CaseNonEquality; Case "tuple"; Permute [2; 3; 1]; Make ("cons", 2);
+ Permute [2; 3; 1]]
+  [Permute [2; 3; 1]; Case "s"; Permute [3; 2; 1]; Duplicate; Case "tuple";
+ Permute [2; 3; 1]; Make ("cons", 2); Permute [2; 3; 1]; Nonterminal "F [6; 5]"]

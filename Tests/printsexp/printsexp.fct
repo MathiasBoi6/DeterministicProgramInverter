@@ -1,0 +1,25 @@
+(define (print-sexp s)
+  (let ((t) (pcar (make nil) s))
+    (return t)))
+
+(define (pcar t s)
+  (case s
+    ((symbol x) (return (make cons (make symbol x) t)))
+    ((nil) (return (make cons (make left)
+                         (make cons (make right) t))))
+    ((cons x y)
+     (let ((t2) (pcdr t y))
+       (let ((t3) (pcar t2 x))
+         (return (make cons (make left) t3)))))))
+
+(define (pcdr t s)
+  (case s
+    ((symbol x)
+     (return (make cons (make dot)
+                   (make cons (make symbol x)
+                         (make cons (make right) t)))))
+    ((nil) (return (make cons (make right) t)))
+    ((cons x y)
+     (let ((t2) (pcdr t y))
+       (let ((t3) (pcar t2 x))
+         (return t3))))))

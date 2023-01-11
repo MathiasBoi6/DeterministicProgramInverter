@@ -1,0 +1,1 @@
+Treelist does not show arity for leaf and bin, so i have prepended a function"MakeLeafAndBin" which adds 'make bin' and 'make leaf'

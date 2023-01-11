@@ -1,0 +1,51 @@
+{
+module StackLexer
+
+open System;;
+open FSharp.Text.Lexing;;
+open System.Text;;
+
+let mutable currentLine = 1
+
+let newline (lexbuf: LexBuffer<_>) = 
+    lexbuf.EndPos <- lexbuf.EndPos.NextLine
+    lexbuf.StartPos <- lexbuf.StartPos.NextLine
+}
+
+// Regular expressions
+let whitespace = [' ' '\t' ]
+let newline = ('\n' | '\r' '\n')
+
+
+rule tokenstream = parse
+// --------------------------
+| '('               { StackParser.LPAR currentLine }
+| ')'               { StackParser.RPAR currentLine }
+| '['               { StackParser.LBRA currentLine }
+| ']'               { StackParser.RBRA currentLine }
+| ','               { StackParser.COMMA currentLine }
+| ';'               { StackParser.SEMI currentLine }
+// --------------------------
+| whitespace        { tokenstream lexbuf }
+| newline           { 
+                        newline lexbuf; 
+                        currentLine  <- currentLine + 1; 
+                        tokenstream lexbuf 
+                    }
+// --------------------------
+| ['0'-'9']*        { 
+                        let num = Int32.Parse(lexbuf.Lexeme)
+                        StackParser.NUM (num, currentLine)
+                    }
+| ['a'-'z' 'A'-'Z']['a'-'z' 'A'-'Z' '0'-'9' '_' '-']*       
+                    { 
+                        let string = String(lexbuf.Lexeme)
+                        StackParser.VAR (string, currentLine)
+                    }
+// --------------------------
+| _                 { 
+                        for car in lexbuf.Lexeme do
+                            printfn "%A" (int car)
+                        failwith ("LexError, could not lex: " + String(lexbuf.Lexeme)) 
+                    }
+| eof               { StackParser.EOF }

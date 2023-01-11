@@ -1,0 +1,2 @@
+[cons (open (HTML), cons (open (JavaScript), cons (close (JavaScript), cons (close (HTML), cons (open (CSS), cons (close (CSS), nil)))))); branch (leaf, leaf, leaf)]
+

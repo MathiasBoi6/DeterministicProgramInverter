@@ -1,0 +1,1 @@
+[cons (cons (0, cons (1, 1)), cons (cons (0, 1), cons (0, cons (cons (0, 1), cons (0, cons (0, cons (0, nil)))))))]

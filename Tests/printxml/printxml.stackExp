@@ -1,0 +1,1 @@
+[cons (open (XMLtag), cons (close (XMLtag), nil)); branch (leaf, leaf, leaf)]

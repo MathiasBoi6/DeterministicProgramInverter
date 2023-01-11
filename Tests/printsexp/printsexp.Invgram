@@ -1,0 +1,31 @@
+"F [0]":
+  [Case "cons"; Nonterminal "F [1]"; Case "nil"]
+"F [1]":
+  [Case "left"; Case "cons"; Nonterminal "F [3; 2]"]
+  [Case "symbol"; Make ("symbol", 1); Permute [2; 1]]
+"F [3; 2]":
+  [Case "left"; Case "cons"; Nonterminal "F [3; 2]"; Case "cons";
+ Nonterminal "F [11; 10]"]
+  [Case "symbol"; Make ("symbol", 1); Permute [2; 1]; Case "cons";
+ Nonterminal "F [11; 10]"]
+  [Case "right"; Make ("nil", 0); Permute [2; 1]]
+"F [11; 10]":
+  [Case "left"; Case "cons"; Nonterminal "F [3; 2]"; Case "cons";
+ Nonterminal "F [11; 24]"; Permute [3; 2; 1]; Make ("cons", 2); Permute [2; 1]]
+  [Case "symbol"; Make ("symbol", 1); Permute [2; 1]; Case "cons";
+ Nonterminal "F [11; 24]"; Permute [3; 2; 1]; Make ("cons", 2); Permute [2; 1]]
+  [Case "right"; Make ("nil", 0); Permute [2; 1]; Permute [3; 2; 1];
+ Make ("cons", 2); Permute [2; 1]]
+  [Case "dot"; Case "cons"; Case "symbol"; Permute [2; 1]; Case "cons";
+ Case "right"; Permute [2; 1]; Make ("symbol", 1); Permute [2; 1];
+ Permute [3; 2; 1]; Make ("cons", 2); Permute [2; 1]]
+"F [11; 24]":
+  [Case "left"; Case "cons"; Nonterminal "F [3; 2]"; Case "cons";
+ Nonterminal "F [11; 24]"; Permute [3; 2; 1]; Make ("cons", 2); Permute [2; 1]]
+  [Case "symbol"; Make ("symbol", 1); Permute [2; 1]; Case "cons";
+ Nonterminal "F [11; 24]"; Permute [3; 2; 1]; Make ("cons", 2); Permute [2; 1]]
+  [Case "right"; Make ("nil", 0); Permute [2; 1]; Permute [3; 2; 1];
+ Make ("cons", 2); Permute [2; 1]]
+  [Case "dot"; Case "cons"; Case "symbol"; Permute [2; 1]; Case "cons";
+ Case "right"; Permute [2; 1]; Make ("symbol", 1); Permute [2; 1];
+ Permute [3; 2; 1]; Make ("cons", 2); Permute [2; 1]]

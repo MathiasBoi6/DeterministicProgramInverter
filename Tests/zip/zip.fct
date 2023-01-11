@@ -1,0 +1,8 @@
+(define (zip x y)
+  (case x
+   ((nil) (case y ((nil) (return (make nil)))))
+   ((cons x1 xs)
+    (case y
+     ((cons y1 ys)
+      (let ((zs) (zip xs ys))
+        (return (make cons (make tuple x1 y1) zs))))))))

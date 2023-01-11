@@ -1,0 +1,2 @@
+[cons (left, cons (symbol (A), cons (symbol (B), cons (right, nil))))]
+

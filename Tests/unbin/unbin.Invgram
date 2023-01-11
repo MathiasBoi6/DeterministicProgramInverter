@@ -1,0 +1,12 @@
+"F [0]":
+  [MakeNum 1; Permute [2; 1]; Nonterminal "F [3; 2; 0]"]
+"F [3; 2; 0]":
+  [Case "cons"; Nonterminal "F [4]"; Permute [2; 1]; Make ("s", 1); Permute [2; 1];
+ Nonterminal "F [3; 2; 0]"]
+  [CaseNum 1; Permute [2; 1]; Case "s"; CaseNum 1]
+"F [4]":
+  [CaseNum 0; Nonterminal "F [5]"]
+  [CaseNum 1; MakeNum 0; Make ("cons", 2)]
+"F [5]":
+  [CaseNum 1; MakeNum 1]
+  [Case "cons"; Nonterminal "F [4]"; MakeNum 1; Make ("cons", 2)]

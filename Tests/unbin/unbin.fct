@@ -1,0 +1,22 @@
+(define (Sarity u)
+  (return (unbin u) (make s (make 1))))
+
+(define (unbin u)
+  (let ((b) (ub u (make 1)))
+    (return b)))
+
+(define (ub u b)
+  (case u
+    ((1) (return b))
+    ((s v) (let ((b2) (inc b))
+             (let ((b3) (ub v b2))
+               (return b3))))))
+
+(define (inc x)
+  (case x
+    ((1) (return (make cons (make 0) (make 1))))
+    ((cons x1 xs)
+     (case x1
+       ((0) (return (make cons (make 1) xs)))
+       ((1) (let ((m) (inc xs))
+              (return (make cons (make 0) m))))))))

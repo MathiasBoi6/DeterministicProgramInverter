@@ -1,0 +1,13 @@
+"pack":
+  [Case "nil"; Make ("nil", 0)]
+  [Case "cons"; Permute [2; 1]; MakeNum 1; Permute [3; 1; 2]; Nonterminal "sub"]
+"sub":
+  [Permute [3; 1; 2]; Case "nil"; Make ("nil", 0); Permute [2; 3; 1];
+ Make ("pair", 2); Make ("cons", 2)]
+  [Permute [3; 1; 2]; Case "cons"; Permute [3; 1; 2]; Make ("tuple", 2);
+ CaseNonEquality; Case "tuple"; Permute [3; 1; 2]; MakeNum 1;
+ Permute [4; 1; 2; 3]; Nonterminal "sub"; Permute [2; 3; 1]; Make ("pair", 2);
+ Make ("cons", 2)]
+  [Permute [3; 1; 2]; Case "cons"; Permute [3; 1; 2]; Make ("tuple", 2);
+ CaseEquality; Permute [3; 2; 1]; Make ("s", 1); Permute [3; 1; 2];
+ Nonterminal "sub"]

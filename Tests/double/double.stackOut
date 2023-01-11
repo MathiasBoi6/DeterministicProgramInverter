@@ -1,0 +1,2 @@
+[cons (A, cons (A, cons (B, cons (B, cons (C, cons (C, nil))))))]
+
