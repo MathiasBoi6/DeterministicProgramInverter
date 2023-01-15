@@ -1,29 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hellf\\Desktop\\Bachelor\\InverterFsharp\\inverting.fsproj": {}
+    "C:\\Users\\hellf\\Desktop\\InverterFin\\DeterministicProgramInverter\\inverting.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\hellf\\Desktop\\Bachelor\\InverterFsharp\\inverting.fsproj": {
+    "C:\\Users\\hellf\\Desktop\\InverterFin\\DeterministicProgramInverter\\inverting.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hellf\\Desktop\\Bachelor\\InverterFsharp\\inverting.fsproj",
+        "projectUniqueName": "C:\\Users\\hellf\\Desktop\\InverterFin\\DeterministicProgramInverter\\inverting.fsproj",
         "projectName": "inverting",
-        "projectPath": "C:\\Users\\hellf\\Desktop\\Bachelor\\InverterFsharp\\inverting.fsproj",
+        "projectPath": "C:\\Users\\hellf\\Desktop\\InverterFin\\DeterministicProgramInverter\\inverting.fsproj",
         "packagesPath": "C:\\Users\\hellf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hellf\\Desktop\\Bachelor\\InverterFsharp\\obj\\",
+        "outputPath": "C:\\Users\\hellf\\Desktop\\InverterFin\\DeterministicProgramInverter\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hellf\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hellf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\sdk\\6.0.405\\FSharp\\library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.100\\FSharp\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,7 +39,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[6.0.7, )",
+              "version": "[7.0.0, )",
               "generatePathProperty": true
             },
             "FsLexYacc": {
@@ -65,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

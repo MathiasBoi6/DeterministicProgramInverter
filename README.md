@@ -15,11 +15,15 @@ please check the Tests/ directory.
 <br>
 dotnet run inverting "fctFile" "StackFile"
 <br>
-&nbsp; &nbsp; &nbsp;	Inverts and interprets
+&nbsp; &nbsp; &nbsp;	Inverts and interprets inverse
 <br><br>
 dotnet run inverting -Invert "fctFile" 
 <br>
-&nbsp; &nbsp; &nbsp;	Inverts and prints grammar
+&nbsp; &nbsp; &nbsp;	Inverts and prints inverse grammar
+<br><br>
+dotnet run inverting -InvertComplete "fctFile" 
+<br>
+&nbsp; &nbsp; &nbsp;	Inverts and prints inverse grammar before and after transition compression
 <br><br>
 dotnet run inverting -LexStack "StackFile"
 <br>

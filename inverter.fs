@@ -40,6 +40,35 @@ let main (paramList: string[]) : int =
             RobParse.PrintGrammar(invertedGrammar)
         else
             failwithf "Could not find file %A" file
+    | [|this; "-InvertComplete"; file|] -> 
+        if System.IO.File.Exists(file) then
+            printfn "Lexing file: %A\n" file
+
+            let grammar = GrammarParser.LexParseAndGenGrammar(file)
+            printfn "Lexing complete"
+
+            let locInvGrammar = LocalInverter.LocalInversion(grammar)
+            printfn "Local inversion complete"
+
+            let nfa = RobNFA.CreateNFARS(locInvGrammar).Value
+            let dfa = RobDFA.NFAToDFARS(nfa)
+            printfn "Translation to NFA and DFA complete"
+
+            let collectionOfPPs = RobParse.CalculateProgramPointsInit(dfa)
+
+            match RobParse.GenerateGrammarComplete(collectionOfPPs) with
+            | fs, gs, hs ->
+                printfn "Calculation of uncompressed grammar complete\n"
+                printfn "HS = %A" hs
+                let uncompressedGrammar = (fs, gs)
+        
+                RobParse.PrintUncompressedGrammar(uncompressedGrammar)
+                let invertedGrammar = RobParse.TransitionCompression(uncompressedGrammar)
+                
+                printfn "\nGrammar became:"
+                RobParse.PrintGrammar(invertedGrammar)
+        else
+            failwithf "Could not find file %A" file
     | [|this; "-DoubleInvert"; file|] -> 
         if (System.IO.File.Exists(file)) then
             printfn "Doubly Inverting file: %A\n" file

@@ -23,9 +23,7 @@ type DFAState(statelst: state list, name : int) =
         let allReductions = FilterReductions(statelst)
         List.distinct allReductions
 
-    //This first gets set in Closure(), as though it could be calculated here
-    //the states which are pointed to cannot be existing states, as that would require 
-    //the states to be aware of each other
+    //This gets set in Closure(), as it needs to be aware of existing states
     let mutable TransitionList : (GrammarTerminal * DFAState) list = []
 
     member this.Name = name
