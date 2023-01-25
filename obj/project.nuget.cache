@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "iTQTQ2YcM6xlivLC8UTxQLrw6EyQNswjFkfLlSD73PeTlWiQU+YnnS27YAxL5R8K3WYY2sUxAxmN67zjM1Fkkg==",
+  "dgSpecHash": "Vds1tM7WoLV78lJOVT4W4RDDLX4suWGPQYHKxB2STZ2/y31XKZDjVdJAic64z7r7ExS42Z5ud6qB6evW+9uL3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hellf\\Desktop\\InverterFin\\DeterministicProgramInverter\\inverting.fsproj",
+  "projectFilePath": "C:\\Users\\hellf\\Desktop\\BachFinal\\DeterministicProgramInverter\\inverting.fsproj",
   "expectedPackageFiles": [
-    "C:\\Users\\hellf\\.nuget\\packages\\fsharp.core\\7.0.0\\fsharp.core.7.0.0.nupkg.sha512",
+    "C:\\Users\\hellf\\.nuget\\packages\\fsharp.core\\6.0.7\\fsharp.core.6.0.7.nupkg.sha512",
     "C:\\Users\\hellf\\.nuget\\packages\\fslexyacc\\10.2.0\\fslexyacc.10.2.0.nupkg.sha512",
     "C:\\Users\\hellf\\.nuget\\packages\\fslexyacc.runtime\\10.2.0\\fslexyacc.runtime.10.2.0.nupkg.sha512"
   ],

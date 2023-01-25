@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Compile Include="Lexing\AbSyn.fs" />
-    <Compile Include="Attempts\grammar.fs" />
 
     <Compile Include="Parsing\LocalInverter.fs" />
     <Compile Include="Parsing\RobNFA.fs" />
